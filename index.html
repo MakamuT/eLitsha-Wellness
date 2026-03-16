@@ -33,19 +33,19 @@
             <h3>Quick Actions</h3>
             <div class="quickActions">
                 <button class="act-btn">
-                    <i class="fa-solid fa-book"></i>
+                    <i class="fa-solid fa-book" style="color: #7C3AED; font-size: 35px;"></i>
                     <span>Knowledge Hub</span>
                 </button>
                 <button class="act-btn">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-magnifying-glass" style="color: #2563EB; font-size: 35px;"></i>
                     <span>Check symptoms</span>
                 </button>
                 <button class="act-btn">
-                    <i class="fa-solid fa-location-dot"></i>
+                    <i class="fa-solid fa-location-dot" style="color: #DC2626; font-size: 35px;"></i>
                     <span>Find Providers</span>
                 </button>
                 <button class="act-btn">
-                    <i class="fa-regular fa-calendar"></i>
+                    <i class="fa-regular fa-calendar" style="color: #059669; font-size: 35px;"></i>
                     <span>Book Appointment</span>
                 </button>
             </div>
@@ -65,7 +65,303 @@
                 <p id="tipContent">Drinking 8 glasses of water daily helps maintain healthy blood pressure and supports kidney</p>
             </div>
         </section>
-    </div>
+        <section id="knowledgeScreen" class="hidden">
+            <div class="content-card">
+                <h2 id="knowledgeHubTitle">Daily Health Knowledge Hub</h2>
+                <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 1rem;">Access health education in your language
+                </p>
+        
+                <div class="tab-buttons">
+                    <button class="tab-btn active" >All Topics</button>
+                    <button class="tab-btn">Chronic Care</button>
+                    <button class="tab-btn">Prevention</button>
+                    <button class="tab-btn">Traditional Medicine</button>
+                </div>
+        
+                <div id="knowledgeList"></div>
+            </section>
+
+            <section id="symptomsScreen" class="hidden">
+                <div class="content-card">
+                    <h2 id="symptomsTitle">Symptom Navigator</h2>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 1rem;">Interactive symptom checker and health
+                        guidance</p>
+                    <div
+                        style="background: #fef3c7; border: 1px solid #fde68a; border-radius: 0.5rem; padding: 0.75rem; margin-bottom: 1rem;">
+                        <p style="font-size: 0.75rem; color: #92400e;">⚠️ This tool provides guidance only. Always consult a
+                            healthcare provider for diagnosis.</p>
+                    </div>
+            
+                    <h3 style="font-weight: 600; color: #374151; margin-bottom: 0.75rem;">Select Your Symptoms</h3>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-bottom: 1rem;">
+                        <button class="act-btn" style="padding: 0.75rem;"><span>🤒 Fever</span></button>
+                        <button class="act-btn" style="padding: 0.75rem;"><span>😷 Cough</span></button>
+                        <button class="act-btn" style="padding: 0.75rem;"><span>🤕 Headache</span></button>
+                        <button class="act-btn" style="padding: 0.75rem;"><span>🤢 Nausea</span></button>
+                        <button class="act-btn" style="padding: 0.75rem;"><span>😰 Fatigue</span></button>
+                        <button class="act-btn" style="padding: 0.75rem;"><span>💔 Chest Pain</span></button>
+                    </div>
+            
+                    <h3 style="font-weight: 600; color: #374151; margin-bottom: 0.75rem;">Recent Symptom Checks</h3>
+                    <div class="provider-item">
+                        <div style="display: flex; justify-content: space-between;">
+                            <div>
+                                <strong>Fever & Cough</strong>
+                                <p style="font-size: 0.875rem; color: #6b7280; margin-top: 0.25rem;">Oct 20, 2025</p>
+                            </div>
+                            <span class="badge" style="background: #fef3c7; color: #92400e;">Moderate Risk</span>
+                        </div>
+                        <p style="font-size: 0.875rem; color: #374151; margin-top: 0.75rem;">✓ Recommendation: Visit GP within 2
+                            days</p>
+                        <p style="font-size: 0.875rem; color: #6b7280;">• Possible conditions: Flu, Cold, Upper respiratory
+                            infection</p>
+                    </div>           
+                    <button class="btn-primary">Start New Symptom Check</button>
+                </div>
+            </section>
+        </div>
+
+        <div id="folderScreen" class="hidden">
+            <div class="content-card">
+                <h2 id="myRecordsTitle">Visit Summaries</h2>
+                <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 1rem;">All your medical and traditional healer
+                    visits</p>
+        
+                <div class="provider-item" style="background: #E8F5E9;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <strong>Dr. Mbali Nkosi - General Practitioner</strong>
+                        <span class="badge badge-green">Western</span>
+                    </div>
+                    <p style="font-size: 0.875rem; color: #6b7280;">📅 Oct 15, 2025 - Khayelitsha Clinic</p>
+                    <div style="margin-top: 0.75rem; font-size: 0.875rem;">
+                        <p><strong>Diagnosis:</strong> Hypertension (High Blood Pressure)</p>
+                        <p><strong>Treatment:</strong> Prescribed Amlodipine 5mg daily</p>
+                        <p><strong>Follow-up:</strong> 3 months (Jan 15, 2026)</p>
+                        <p><strong>Notes:</strong> Monitor BP daily, reduce salt intake</p>
+                    </div>
+                </div>
+        
+                <div class="provider-item" style="background: #faf5ff;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <strong>Mama Nomvula - Traditional Healer</strong>
+                        <span class="badge" style="background: #e9d5ff; color: #6b21a8;">Traditional</span>
+                    </div>
+                    <p style="font-size: 0.875rem; color: #6b7280;">📅 Oct 5, 2025 - Site C, Khayelitsha</p>
+                    <div style="margin-top: 0.75rem; font-size: 0.875rem;">
+                        <p><strong>Consultation:</strong> Stress and anxiety management</p>
+                        <p><strong>Treatment:</strong> Herbal tea blend (umhlonyane), steam inhalation</p>
+                        <p><strong>Follow-up:</strong> 2 weeks</p>
+                        <p><strong>Notes:</strong> Continue meditation practices daily</p>
+                    </div>
+                </div>
+        
+                <div class="provider-item">
+                    <strong>TB Screening</strong>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-top: 0.25rem;">Sep 28, 2025 - Site B Hospital</p>
+                    <div style="margin-top: 0.75rem; font-size: 0.875rem;">
+                        <p><strong>Result:</strong> <span class="badge badge-green">Negative</span></p>
+                        <p><strong>Next screening:</strong> Sep 2026</p>
+                    </div>
+                </div>
+        
+                <button class="btn-primary">Add Manual Entry</button>
+            </div>
+        </div>
+
+        <div id="directoryScreen" class="hidden">
+            <div class="content-card">
+                <h2 id="clinicsTitle">Provider Directory</h2>
+                <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 1rem;">Doctors, clinics & traditional healers near
+                    you</p>
+        
+                <input type="text" class="search-input" placeholder="Search by name, specialty, or location...">
+        
+                <div class="tab-buttons">
+                    <button class="tab-btn active">All</button>
+                    <button class="tab-btn">Doctors</button>
+                    <button class="tab-btn">Clinics</button>
+                    <button class="tab-btn">Traditional Healers</button>
+                </div>
+        
+                <div id="providersList"></div>
+            </div>
+        </div>
+
+
+        <div id="appointmentsScreen" class="hidden">
+            <div class="content-card">
+                <h2 id="appointmentsTitle">Appointments</h2>
+        
+                <h3 style="font-weight: 600; color: #374151; margin-bottom: 0.75rem;">Upcoming Appointments</h3>
+                <div class="provider-item" style="background: #E8F5E9; border: 2px solid #4A8B4F;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <strong>Dr. Mbali Nkosi</strong>
+                        <span class="badge badge-green">Confirmed</span>
+                    </div>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;">📅 Tomorrow, Oct 31 at 10:00 AM</p>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.75rem;">📍 Khayelitsha Community Clinic</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem;">
+                        <button class="btn-primary" style="padding: 0.5rem; font-size: 0.75rem;">Get Directions</button>
+                        <button class="btn-secondary" style="font-size: 0.75rem;">Reschedule</button>
+                        <button class="btn-secondary" style="background: #dc2626; font-size: 0.75rem;">Cancel</button>
+                    </div>
+                </div>
+        
+                <div class="provider-item">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <strong>Mama Nomvula</strong>
+                        <span class="badge" style="background: #fef3c7; color: #92400e;">Pending</span>
+                    </div>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;">📅 Nov 5 at 2:00 PM</p>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.75rem;">📍 Site C, Khayelitsha</p>
+                    <button class="btn-primary" style="padding: 0.5rem;">Get Directions</button>
+                </div>
+        
+                <h3 style="font-weight: 600; color: #374151; margin: 1.5rem 0 0.75rem;">Book New Appointment</h3>
+                <select class="search-input" style="margin-bottom: 0.5rem;">
+                    <option>Select Provider Type</option>
+                    <option>Medical Doctor</option>
+                    <option>Traditional Healer</option>
+                    <option>Nurse Practitioner</option>
+                    <option>Dentist</option>
+                </select>
+                <input type="date" class="search-input" style="margin-bottom: 0.5rem;" value="2025-10-31">
+                <button class="btn-primary">Find Available Slots</button>
+            </div>
+        </div>
+
+
+        <div id="profileScreen" class="hidden">
+            <div class="content-card">
+                <div class="profile-avatar">TM</div>
+                <h2 style="text-align: center; margin-bottom: 0.5rem;">Thandi Mkhize</h2>
+                <p style="text-align: center; color: #6b7280; font-size: 0.875rem; margin-bottom: 1.5rem;">ID: 8512****084</p>
+        
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-bottom: 1.5rem;">
+                    <div class="stat-card">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Total Visits</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Western</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Traditional</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Upcoming</div>
+                    </div>
+                </div>
+        
+                <h3 style="font-weight: 600; margin-bottom: 0.75rem;">Personal Information</h3>
+                <div class="provider-item">
+                    <p><strong>Date of Birth:</strong> Dec 15, 1985</p>
+                    <p><strong>Blood Type:</strong> O+</p>
+                    <p><strong>Allergies:</strong> Penicillin</p>
+                    <p><strong>Chronic Conditions:</strong> Hypertension</p>
+                    <p><strong>Primary Language:</strong> isiXhosa</p>
+                </div>
+        
+                <h3 style="font-weight: 600; margin: 1rem 0 0.75rem;">Emergency Contact</h3>
+                <div class="provider-item">
+                    <p><strong>Name:</strong> Sipho Mkhize</p>
+                    <p><strong>Relationship:</strong> Spouse</p>
+                    <p><strong>Phone:</strong> +27 82 123 4567</p>
+                </div>
+        
+                <button class="btn-primary">Edit Profile</button>
+            </div>
+        </div>
+
+        <div id="adminScreen" class="hidden">
+            <div class="content-card">
+                <h2>📊 Admin Analytics Dashboard</h2>
+                <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 1rem;">Platform performance and impact metrics</p>
+        
+                <h3 style="font-weight: 600; margin-bottom: 0.75rem;">User Engagement (Last 30 Days)</h3>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-bottom: 1.5rem;">
+                    <div class="stat-card">
+                        <div class="stat-number">2,847</div>
+                        <div class="stat-label">Active Users</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1,523</div>
+                        <div class="stat-label">New Registrations</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">8,234</div>
+                        <div class="stat-label">Symptom Checks</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4,891</div>
+                        <div class="stat-label">Knowledge Views</div>
+                    </div>
+                </div>
+        
+                <h3 style="font-weight: 600; margin-bottom: 0.75rem;">Appointments & Visits</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.5rem;">
+                    <div class="stat-card">
+                        <div class="stat-number">3,421</div>
+                        <div class="stat-label">Total Bookings</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2,156</div>
+                        <div class="stat-label">Western Medicine</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1,265</div>
+                        <div class="stat-label">Traditional Healers</div>
+                    </div>
+                </div>
+        
+                <h3 style="font-weight: 600; margin-bottom: 0.75rem;">Integration Impact</h3>
+                <div class="provider-item" style="background: #E8F5E9;">
+                    <p style="margin-bottom: 0.5rem;"><strong>✓ Dual Care Adoption:</strong> 64% of users visit both Western and
+                        Traditional providers</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>✓ Health Literacy:</strong> Average 23 knowledge articles read per
+                        user</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>✓ Appointment Adherence:</strong> 87% show-up rate</p>
+                    <p><strong>✓ User Satisfaction:</strong> 4.6/5.0 average rating</p>
+                </div>
+        
+                <h3 style="font-weight: 600; margin: 1rem 0 0.75rem;">Top Health Topics Searched</h3>
+                <div class="provider-item">
+                    <p>1. Hypertension Management - 1,847 searches</p>
+                    <p>2. Diabetes Care - 1,523 searches</p>
+                    <p>3. TB Prevention - 1,234 searches</p>
+                    <p>4. Traditional Medicine Integration - 1,089 searches</p>
+                    <p>5. Maternal Health - 967 searches</p>
+                </div>
+        
+                <button class="btn-primary">Export Full Report</button>
+            </div>
+        </div>
+        </div>
+
+        <div class="bottom-nav">
+            <button class="nav-btn active">
+                
+                <span>Home</span>
+            </button>
+            <button class="nav-btn">
+                <span>Learn</span>
+            </button>
+            <button class="nav-btn">
+                <i class="fa-regular fa-file"></i>
+                <span>Visits</span>
+            </button>
+            <button class="nav-btn">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Find</span>
+            </button>
+            <button class="nav-btn">
+                
+                <span>Admin</span>
+            </button>
+        </div>
     </div>
 </body>
 </html>
