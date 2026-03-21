@@ -29,28 +29,29 @@
             </div>
         </div>
 
+        <div class="search-container" >
+            <input type="text" class="search-input" placeholder="Search here ..." id="globalSearch">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+        </div>
+
         <div class="main">
             <section class="home">
-                <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Search here ..." id="globalSearch">
-                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                    </div>
                 <h3 style="font-weight: 600; color: #1f2937; margin-bottom: 0.75rem;">Quick Actions</h3>
                 <div class="quickActions">
                     <button class="act-btn">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-magnifying-glass" style="color: #059669; font-size: 35px;"></i>
                         <span>Mood check-in</span>
                     </button>
                     <button class="act-btn">
-                        <i class="fa-solid fa-stethoscope"></i>
+                        <i class="fa-solid fa-stethoscope" style="color: #2563EB; font-size: 35px;"></i>
                         <span>Check symptoms</span>
                     </button>
                     <button class="act-btn">
-                        <i class="fa-solid fa-lightbulb"></i>
+                        <i class="fa-solid fa-lightbulb" style="color: #FFD600; font-size: 35px;"></i>
                         <span>Daily Health Tips</span>
                     </button>
                     <button class="act-btn">
@@ -70,19 +71,76 @@
 
             </section>
 
-            <section id="knowledgeScreen" class="hidden">
+            <!-- Learn/Knowledge Screen -->
+            <div id="knowledgeScreen" class="hidden" style="margin-top: -70px;">
                 <div class="content-card">
-                    <h2 id="knowledgeHubTitle">Daily Health Knowledge Hub</h2>
-                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 1rem;">Access health education in your language</p>
-                    <div class="tab-buttons">
-                        <button class="tab-btn active">All Topics</button>
-                        <button class="tab-btn">Chronic Care</button>
-                        <button class="tab-btn">Prevention</button>
-                        <button class="tab-btn">Traditional Medicine</button>
+                    <div class="icon-grid">
+                        <button class="icon-btn">
+                            <div class="icon-btn-box">
+                                <i class="fa-solid fa-headset"></i>
+                            </div>
+                            <span>Ask A Pro</span>
+                        </button>
+                        <button class="icon-btn">
+                            <div class="icon-btn-box">
+                                <i class="fa-solid fa-tv"></i>
+                            </div>
+                            <span>Local Services</span>
+                        </button>
+                        <button class="icon-btn">
+                            <div class="icon-btn-box"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                            <span>Tools To Use</span>
+                        </button>
+                        <button class="icon-btn">
+                            <div class="icon-btn-box">
+                                <i class="fa-solid fa-gamepad"></i>
+                            </div>
+                            <span>Living Tips</span>
+                        </button>
+                        <button class="icon-btn">
+                            <div class="icon-btn-box">
+                                <i class="fa-solid fa-headphones"></i>
+                            </div>
+                            <span>V/Notes</span>
+                        </button>
+                        <button class="icon-btn">
+                            <div class="icon-btn-box">
+                                <i class="fa-solid fa-tv"></i>
+                            </div>
+                            <span>V/Clips</span>
+                        </button>
+                        <button class="icon-btn">
+                            <div class="icon-btn-box">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+                            <span>Quick Reads</span>
+                        </button>
+                        <button class="icon-btn">
+                            <div class="icon-btn-box">
+                                <i class="fa-solid fa-book"></i>
+                            </div>
+                            <span>Our Stories</span>
+                        </button>
                     </div>
-                    <div id="knowledgeList"></div>
+            
+                    <div class="topic-section">
+                        <h3>Traditional and Cultural Healing - Related Topics</h3>
+                        <p style="color: #FDB913; font-weight: 600; margin-top: 0.5rem;">Feeds Style</p>
+                    </div>
+            
+                    <div class="topic-section">
+                        <h3>Health System Navigation - Related Topics</h3>
+                    </div>
+            
+                    <div class="topic-section">
+                        <h3>Workplace and Informal Worker Health - Related Topics</h3>
+                    </div>
+            
+                    <div class="topic-section">
+                        <h3>Mental Health and Emotional Wellbeing - Related Topics</h3>
+                    </div>
                 </div>
-            </section>
+            </div>
 
             <section id="symptomsScreen" class="hidden">
                 <div class="content-card">
@@ -218,20 +276,7 @@
                 </div>
             </div>
 
-            <div id="directoryScreen" class="hidden">
-                <div class="content-card">
-                    <h2 id="clinicsTitle">Provider Directory</h2>
-                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 1rem;">Doctors, clinics & traditional healers near you</p>
-                    <input type="text" class="search-input" placeholder="Search by name, specialty, or location...">
-                    <div class="tab-buttons">
-                        <button class="tab-btn active">All</button>
-                        <button class="tab-btn">Doctors</button>
-                        <button class="tab-btn">Clinics</button>
-                        <button class="tab-btn">Traditional Healers</button>
-                    </div>
-                    <div id="providersList"></div>
-                </div>
-            </div>
+            
 
             <div id="appointmentsScreen" class="hidden">
                 <div class="content-card">
@@ -338,6 +383,8 @@
             </div>
         </div>
 
+        
+
         <div class="bottom-nav">
             <button class="nav-btn active">
                 <i class="fa-solid fa-house"></i>
@@ -348,16 +395,16 @@
                 <span>Learn</span>
             </button>
             <button class="nav-btn">
-                <i class="fa-regular fa-file"></i>
-                <span>Visits</span>
-            </button>
-            <button class="nav-btn">
                 <i class="fa-solid fa-location-dot"></i>
-                <span>Find</span>
+                <span>Directory</span>
             </button>
             <button class="nav-btn">
-                <i class="fa-solid fa-chart-bar"></i>
-                <span>Admin</span>
+                <i class="fa-solid fa-user"></i>
+                <span>Profile</span>
+            </button>
+            <button class="nav-btn">
+                <i class="fa-solid fa-briefcase-medical"></i>
+                <span>Clinic Prep</span>
             </button>
         </div>
     </div>
