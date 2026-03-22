@@ -541,7 +541,7 @@ function setupEventListeners() {
     if (bottomNavButtons) {
         bottomNavButtons.forEach((btn, index) => {
             btn.addEventListener('click', function() {
-                const screenMap = ['home', 'knowledge', 'folder', 'directory', 'campaigns', 'partners', 'admin'];
+                const screenMap = ['home', 'knowledge',  'directory', 'profile', 'clinic','admin'];
                 const screen = screenMap[index] || 'home';
                 showScreen(screen);
                 
@@ -625,17 +625,19 @@ function setupEventListeners() {
     
     // Provider directory tabs
     const providerTabs = document.querySelectorAll('#directoryScreen .tab-buttons .tab-btn');
-    providerTabs.forEach((btn, index) => {
-        btn.addEventListener('click', function() {
-            providerTabs.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            
-            const filters = ['all', 'doctor', 'clinic', 'traditional'];
-            if (index < filters.length) {
-                renderProviders(filters[index]);
-            }
+    if (providerTabs && providerTabs.length > 0) {
+        providerTabs.forEach((btn, index) => {
+            btn.addEventListener('click', function() {
+                providerTabs.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filters = ['all', 'doctor', 'clinic', 'traditional'];
+                if (index < filters.length) {
+                    renderProviders(filters[index]);
+                }
+            });
         });
-    });
+    }
     
     // Search input in directory
     const searchInput = document.querySelector('.search-input');

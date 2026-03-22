@@ -72,7 +72,7 @@
             </section>
 
             <!-- Learn/Knowledge Screen -->
-            <div id="knowledgeScreen" class="hidden" style="margin-top: -70px;">
+            <div id="knowledgeScreen" class="hidden" style="margin-top: -120px;">
                 <div class="content-card">
                     <div class="icon-grid">
                         <button class="icon-btn">
@@ -174,108 +174,72 @@
                 </div>
             </section>
 
-            <div id="folderScreen" class="hidden">
+            <!-- Directory Screen -->
+            <div id="directoryScreen" class="hidden" style="margin-top: -120px;">
                 <div class="content-card">
-                    <h2 id="myRecordsTitle">Visit Summaries</h2>
-                    <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 1rem;">All your medical and traditional healer visits</p>
-                    <div class="provider-item" style="background: #E8F5E9;">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                            <strong>Dr. Mbali Nkosi - General Practitioner</strong>
-                            <span class="badge badge-green">Western</span>
-                        </div>
-                        <p style="font-size: 0.875rem; color: #6b7280;">📅 Oct 15, 2025 - Khayelitsha Clinic</p>
-                        <div style="margin-top: 0.75rem; font-size: 0.875rem;">
-                            <p><strong>Diagnosis:</strong> Hypertension (High Blood Pressure)</p>
-                            <p><strong>Treatment:</strong> Prescribed Amlodipine 5mg daily</p>
-                            <p><strong>Follow-up:</strong> 3 months (Jan 15, 2026)</p>
-                            <p><strong>Notes:</strong> Monitor BP daily, reduce salt intake</p>
-                        </div>
+                    <div class="icon-grid">
+                        <button class="icon-btn" onclick="filterDirectory('all')">
+                            <div class="icon-btn-box">
+                                <i class="fa-solid fa-house-chimney-medical"></i>
+                            </div>
+                            <span>Clinics</span>
+                        </button>
+                        <button class="icon-btn" onclick="filterDirectory('doctors')">
+                            <div class="icon-btn-box">
+                                <i class="fa-solid fa-user-doctor"></i>
+                            </div>
+                            <span>Doctors</span>
+                        </button>
+                        <button class="icon-btn" onclick="filterDirectory('healers')">
+                            <div class="icon-btn-box">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+                            <span>Healers</span>
+                        </button>
+                        <button class="icon-btn" onclick="filterDirectory('pharmacies')">
+                            <div class="icon-btn-box">
+                                <i class="fa-solid fa-capsules"></i>
+                            </div>
+                            <span>Pharmacies</span>
+                        </button>
                     </div>
-                    <div class="provider-item" style="background: #faf5ff;">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                            <strong>Mama Nomvula - Traditional Healer</strong>
-                            <span class="badge" style="background: #e9d5ff; color: #6b21a8;">Traditional</span>
+            
+                    <div id="providersList">
+                        <div class="provider-card">
+                            <strong>Site B Community Clinic <span class="provider-badge">Public Clinic</span></strong>
+                            <p class="provider-info" style="color: #FDB913; font-weight: 600;">0.8 km</p>
+                            <p class="provider-info">📍 Spine Road, Site B, Khayelitsha</p>
+                            <p class="provider-info">⏰ Mon-Fri: 7:00 AM - 5:00 PM</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">Directions</button>
+                                <button class="btn-secondary">Call</button>
+                            </div>
                         </div>
-                        <p style="font-size: 0.875rem; color: #6b7280;">📅 Oct 5, 2025 - Site C, Khayelitsha</p>
-                        <div style="margin-top: 0.75rem; font-size: 0.875rem;">
-                            <p><strong>Consultation:</strong> Stress and anxiety management</p>
-                            <p><strong>Treatment:</strong> Herbal tea blend (umhlonyane), steam inhalation</p>
-                            <p><strong>Follow-up:</strong> 2 weeks</p>
-                            <p><strong>Notes:</strong> Continue meditation practices daily</p>
+            
+                        <div class="provider-card">
+                            <strong>Mama Nomvula <span class="provider-badge">Traditional Healer</span></strong>
+                            <p class="provider-info" style="color: #FDB913; font-weight: 600;">1.2 km</p>
+                            <p class="provider-info">📍 103 Makhaza Street, Khayelitsha</p>
+                            <p class="provider-info">⏰ Daily: 10:00 AM - 6:00 PM</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">Directions</button>
+                                <button class="btn-secondary">Call</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="provider-item">
-                        <strong>TB Screening</strong>
-                        <p style="font-size: 0.875rem; color: #6b7280; margin-top: 0.25rem;">Sep 28, 2025 - Site B Hospital</p>
-                        <div style="margin-top: 0.75rem; font-size: 0.875rem;">
-                            <p><strong>Result:</strong> <span class="badge badge-green">Negative</span></p>
-                            <p><strong>Next screening:</strong> Sep 2026</p>
-                        </div>
-                    </div>
-        
-                    <button class="btn-primary" id="addManualEntryBtn">Add Manual Entry</button>
-                    
-                    <!-- Manual Entry Form (initially hidden) -->
-                    <div id="manualEntryForm" class="hidden" style="margin-top: 1.5rem;">
-                        <div class="content-card" style="background: #f8fafc; border: 2px solid #4A8B4F;">
-                            <h3 style="font-weight: 600; color: #4A8B4F; margin-bottom: 1rem;" id="manualEntryTitle">Add Visit Record</h3>
-                            <form id="visitRecordForm">
-                                <div style="margin-bottom: 1rem;">
-                                    <label style="display: block; font-weight: 500; margin-bottom: 0.5rem;" id="providerTypeLabel">Provider Type:</label>
-                                    <select id="providerTypeSelect" class="search-input" style="margin-bottom: 0;">
-                                        <option value="">Select provider type</option>
-                                        <option value="western">Medical Doctor / Clinic</option>
-                                        <option value="traditional">Traditional Healer</option>
-                                        <option value="screening">Health Screening</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                                
-                                <div style="margin-bottom: 1rem;">
-                                    <label style="display: block; font-weight: 500; margin-bottom: 0.5rem;" id="providerNameLabel">Provider Name:</label>
-                                    <input type="text" id="providerNameInput" class="search-input" placeholder="e.g., Dr. Smith, Mama Nomsa" style="margin-bottom: 0;">
-                                </div>
-                                
-                                <div style="margin-bottom: 1rem;">
-                                    <label style="display: block; font-weight: 500; margin-bottom: 0.5rem;" id="visitDateLabel">Visit Date:</label>
-                                    <input type="date" id="visitDateInput" class="search-input" style="margin-bottom: 0;">
-                                </div>
-                                
-                                <div style="margin-bottom: 1rem;">
-                                    <label style="display: block; font-weight: 500; margin-bottom: 0.5rem;" id="locationLabel">Location:</label>
-                                    <input type="text" id="locationInput" class="search-input" placeholder="e.g., Khayelitsha Clinic, Site B" style="margin-bottom: 0;">
-                                </div>
-                                
-                                <div style="margin-bottom: 1rem;">
-                                    <label style="display: block; font-weight: 500; margin-bottom: 0.5rem;" id="diagnosisLabel">Diagnosis / Consultation:</label>
-                                    <textarea id="diagnosisInput" class="search-input" rows="2" placeholder="What was discussed or diagnosed?" style="margin-bottom: 0; resize: vertical; font-family: inherit;"></textarea>
-                                </div>
-                                
-                                <div style="margin-bottom: 1rem;">
-                                    <label style="display: block; font-weight: 500; margin-bottom: 0.5rem;" id="treatmentLabel">Treatment / Recommendations:</label>
-                                    <textarea id="treatmentInput" class="search-input" rows="2" placeholder="Medication, herbs, lifestyle changes, etc." style="margin-bottom: 0; resize: vertical; font-family: inherit;"></textarea>
-                                </div>
-                                
-                                <div style="margin-bottom: 1rem;">
-                                    <label style="display: block; font-weight: 500; margin-bottom: 0.5rem;" id="followUpLabel">Follow-up:</label>
-                                    <input type="text" id="followUpInput" class="search-input" placeholder="e.g., 2 weeks, 3 months" style="margin-bottom: 0;">
-                                </div>
-                                
-                                <div style="margin-bottom: 1.5rem;">
-                                    <label style="display: block; font-weight: 500; margin-bottom: 0.5rem;" id="notesLabel">Additional Notes:</label>
-                                    <textarea id="notesInput" class="search-input" rows="3" placeholder="Any other important information..." style="margin-bottom: 0; resize: vertical; font-family: inherit;"></textarea>
-                                </div>
-                                
-                                <div style="display: flex; gap: 0.75rem;">
-                                    <button type="submit" class="btn-primary" style="flex: 1;" id="saveEntryBtn">Save Entry</button>
-                                    <button type="button" class="btn-secondary" style="flex: 1; background: #6b7280;" id="cancelEntryBtn">Cancel</button>
-                                </div>
-                            </form>
+            
+                        <div class="provider-card">
+                            <strong>Dr. Phindi Tyandela <span class="provider-badge">Medical Doctor</span></strong>
+                            <p class="provider-info" style="color: #FDB913; font-weight: 600;">2.5 km</p>
+                            <p class="provider-info">📍 19105 Vuyiseni Street, Mandela Park</p>
+                            <p class="provider-info">⏰ Daily: 9:00 AM - 6:00 PM</p>
+                            <div class="btn-row">
+                                <button class="btn-primary">Directions</button>
+                                <button class="btn-secondary">Call</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             
 
             <div id="appointmentsScreen" class="hidden">
@@ -317,34 +281,135 @@
                 </div>
             </div>
 
-            <div id="profileScreen" class="hidden">
+            <!-- Profile Screen -->
+            <div id="profileScreen" class="hidden" style="margin-top: -110px;">
                 <div class="content-card">
-                    <div class="profile-avatar">TM</div>
-                    <h2 style="text-align: center; margin-bottom: 0.5rem;">Thandi Mkhize</h2>
-                    <p style="text-align: center; color: #6b7280; font-size: 0.875rem; margin-bottom: 1.5rem;">ID: 8512****084</p>
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-bottom: 1.5rem;">
-                        <div class="stat-card"><div class="stat-number">12</div><div class="stat-label">Total Visits</div></div>
-                        <div class="stat-card"><div class="stat-number">8</div><div class="stat-label">Western</div></div>
-                        <div class="stat-card"><div class="stat-number">4</div><div class="stat-label">Traditional</div></div>
-                        <div class="stat-card"><div class="stat-number">3</div><div class="stat-label">Upcoming</div></div>
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <img src="https://via.placeholder.com/100" alt="Profile">
+                        </div>
+                        <h2 class="profile-name">Thandabantu Mkhize</h2>
+                        <p class="profile-subtitle">YOUR DIGITAL CLINIC CARD - FAMILY HEALTH RECORD - AND PORTABLE MEDICAL HISTORY
+                        </p>
                     </div>
-                    <h3 style="font-weight: 600; margin-bottom: 0.75rem;">Personal Information</h3>
-                    <div class="provider-item">
-                        <p><strong>Date of Birth:</strong> Dec 15, 1985</p>
+            
+                    <div class="info-section">
+                        <p><strong>Date of Birth:</strong> Dec 15, 1985 (ID: 8512****084)</p>
                         <p><strong>Blood Type:</strong> O+</p>
                         <p><strong>Allergies:</strong> Penicillin</p>
-                        <p><strong>Chronic Conditions:</strong> Hypertension</p>
+                        <p><strong>Chronic Conditions:</strong> Hypertension, Diabetes</p>
                         <p><strong>Primary Language:</strong> isiXhosa</p>
                     </div>
-                    <h3 style="font-weight: 600; margin: 1rem 0 0.75rem;">Emergency Contact</h3>
-                    <div class="provider-item">
-                        <p><strong>Name:</strong> Sipho Mkhize</p>
-                        <p><strong>Relationship:</strong> Spouse</p>
-                        <p><strong>Phone:</strong> +27 82 123 4567</p>
+            
+                    <div class="visit-notes">
+                        <div class="note-card">
+                            <h4>Last Doctor Visit Notes</h4>
+                            <p><strong>Date:</strong></p>
+                            <p><strong>Practitioner:</strong></p>
+                            <p><strong>Reason For Visit:</strong></p>
+                            <p><strong>Diagnosis:</strong></p>
+                            <p><strong>Treatment/Advice:</strong></p>
+                            <p><strong>Follow-up:</strong></p>
+                        </div>
+            
+                        <div class="note-card">
+                            <h4>Last Healer Visit Notes</h4>
+                            <p><strong>Date:</strong></p>
+                            <p><strong>Practitioner:</strong></p>
+                            <p><strong>Reason For Visit:</strong></p>
+                            <p><strong>Diagnosis:</strong></p>
+                            <p><strong>Treatment/Advice:</strong></p>
+                            <p><strong>Follow-up:</strong></p>
+                        </div>
                     </div>
-                    <button class="btn-primary">Edit Profile</button>
+            
+                    <div class="icon-grid">
+                        <button class="icon-btn">
+                            <div class="icon-btn-box">
+                                <i class="fa-solid fa-chart-column"></i>
+                            </div>
+                            <span>Weekly Report</span>
+                        </button>
+                        <button class="icon-btn">
+                            <div class="icon-btn-box">
+                                <i class="fa-regular fa-clipboard"></i>
+                            </div>
+                            <span>Medical History</span>
+                        </button>
+                        <button class="icon-btn">
+                            <div class="icon-btn-box">
+                                <i class="fa-solid fa-capsules"></i>
+                            </div>
+                            <span>Medications</span>
+                        </button>
+                        <button class="icon-btn">
+                            <div class="icon-btn-box">
+                                <i class="fa-solid fa-clipboard-check"></i>
+                            </div>
+                            <span>Vitals Tracking</span>
+                        </button>
+                        <button class="icon-btn">
+                            <div class="icon-btn-box">
+                                <i class="fa-regular fa-hospital"></i>
+                            </div>
+                            <span>Clinic Visits</span>
+                        </button>
+                        <button class="icon-btn">
+                            <div class="icon-btn-box">
+                                <i class="fa-solid fa-microscope"></i>
+                            </div>
+                            <span>Lab Results</span>
+                        </button>
+                    </div>
+            
+                    <div class="info-section">
+                        <h4 style="margin-bottom: 0.5rem;">Emergency Contact</h4>
+                        <p>Name: Sipho Mkhize / Spouse / +27 82 123 4567</p>
+                    </div>
                 </div>
             </div>
+
+            <!-- Clinic Prep Screen -->
+            <div id="clinicScreen" class="hidden">
+                <div class="content-card">
+                    <h2>Clinic Visit Preparation</h2>
+            
+                    <div class="prep-item">
+                        <span>Reason For Visit</span>
+                        <span class="arrow">›››</span>
+                    </div>
+            
+                    <div class="prep-item">
+                        <span>Symptoms Check</span>
+                        <span class="arrow">›››</span>
+                    </div>
+                    <div style="background: #9E9E9E; border-radius: 0.75rem; padding: 0.5rem 1rem; margin-bottom: 0.75rem;">
+                        <p style="font-size: 0.875rem; color: #1f2937;">Duration</p>
+                    </div>
+            
+                    <div class="prep-item">
+                        <span>Current Conditions and Medications<br>(Traditional and Western)</span>
+                        <span class="arrow">›››</span>
+                    </div>
+                    <button class="btn-primary" style="width: auto; margin-bottom: 0.75rem;">LOAD IMAGE</button>
+            
+                    <div class="prep-item">
+                        <span>Previous Tests or Results</span>
+                        <span class="arrow">›››</span>
+                    </div>
+            
+                    <div class="prep-item">
+                        <span>Lifestyle Factors</span>
+                        <span class="arrow">›››</span>
+                    </div>
+            
+                    <div class="prep-item">
+                        <span>Questions For Doctor</span>
+                        <span class="arrow">›››</span>
+                    </div>
+                </div>
+            </div>
+
 
             <div id="adminScreen" class="hidden">
                 <div class="content-card">
@@ -384,7 +449,6 @@
         </div>
 
         
-
         <div class="bottom-nav">
             <button class="nav-btn active">
                 <i class="fa-solid fa-house"></i>
